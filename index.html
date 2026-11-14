@@ -62,7 +62,6 @@
       border: 1px solid rgba(255, 200, 220, 0.6);
       position: relative;
       z-index: 10;
-      /* on mobile, give extra bottom padding so popups at the bottom don't cover content */
     }
 
     .card::before {
@@ -952,31 +951,19 @@
     { emoji: '🌹', title: 'You said YES!',       text: "I'm the luckiest person alive. 💕" },
     { emoji: '🎉', title: 'Celebration time!',   text: 'You just made my whole year! 🥳' },
     { emoji: '💌', title: 'A little secret…',    text: "I've been waiting for this moment forever." },
-    { emoji: '🥰', title: "You're amazing",      text: 'Thank you for choosing me. I adore you.' },
-    { emoji: '✨', title: 'One more thing…',     text: "You + Me = Forever. It's official now! 💖" },
-    { emoji: '🍫', title: 'Sweet treat',         text: 'Chocolate later? You deserve it, my love.' },
-    { emoji: '🎈', title: "Let's celebrate!",    text: "I'm popping confetti in my heart right now!" },
-    { emoji: '💐', title: "You're my favourite", text: 'Every day with you is a gift. 💐' },
-    { emoji: '🦋', title: 'Butterflies',         text: 'You still give me butterflies, every single time.' },
-    { emoji: '💍', title: 'And one more…',       text: "Okay, I'll stop spamming… for now 😘" }
+    { emoji: '🥰', title: "You're amazing",      text: 'Thank you for choosing me. I adore you.' }
   ];
 
   const popupMessagesStage2 = [
     { emoji: '💍', title: 'She said YES again!', text: 'Marriage is on the table, and I\'m over the moon. 💕' },
     { emoji: '💒', title: 'Future wedding bells', text: 'I can already hear them ringing for us. 🔔' },
     { emoji: '🥹', title: 'Tears of joy',        text: 'You\'ve just made me the happiest human alive.' },
-    { emoji: '🫶', title: 'My person, forever',  text: 'You\'re my always and my everything.' },
-    { emoji: '💐', title: 'A promise',           text: 'I promise to love you in every lifetime.' },
-    { emoji: '🌹', title: 'This is forever',     text: 'From valentine to wife-to-be — I\'m so lucky.' },
-    { emoji: '💞', title: 'Two hearts, one path',text: 'Our story just got its best chapter yet.' },
-    { emoji: '✨', title: 'You & Me & Always',   text: 'No matter what, it\'s always been you.' },
-    { emoji: '🥂', title: 'To us!',              text: 'Here\'s to a lifetime of love and laughter.' },
-    { emoji: '💖', title: 'And one more…',       text: 'Okay — the real question comes next. 😘' }
+    { emoji: '🫶', title: 'My person, forever',  text: 'You\'re my always and my everything.' }
   ];
 
   let popupCount   = 0;
   let sideToggle   = 0;
-  const MAX_POPUPS = 10;
+  const MAX_POPUPS = 4;          // ← limited to 4 popups per question
   const POPUP_DELAY = 520;
 
   // Track vertical slots used on mobile so banners don't overlap
