@@ -62,6 +62,7 @@
       border: 1px solid rgba(255, 200, 220, 0.6);
       position: relative;
       z-index: 10;
+      /* on mobile, give extra bottom padding so popups at the bottom don't cover content */
     }
 
     .card::before {
@@ -507,30 +508,33 @@
     }
 
     /* ══════════════════════════════════════════════════
-       MOBILE POPUP STYLES — slim top/bottom banners
-       so they never cover the question card
+       MOBILE POPUP STYLES — slim banners docked to edges
+       FIX: they never cover the centered question card
        ══════════════════════════════════════════════════ */
     @media (max-width: 899px) {
-      /* popups become compact banners docked to top / bottom edges */
       .popup {
         width: calc(100% - 24px);
         max-width: 460px;
         left: 50% !important;
         transform: translateX(-50%) !important;
-        padding: 0.7rem 2.2rem 0.75rem 1rem;
-        border-radius: 18px;
+        padding: 0.6rem 2.1rem 0.6rem 0.85rem;
+        border-radius: 16px;
         display: flex;
         align-items: center;
-        gap: 0.65rem;
+        gap: 0.55rem;
         text-align: left;
+        z-index: 25000;
         animation: popInMobile 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        max-height: 60px;
+        overflow: hidden;
       }
 
       .popup .popup-emoji {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         margin: 0;
         flex: 0 0 auto;
         display: inline-block;
+        line-height: 1;
       }
 
       .popup .popup-text {
@@ -539,18 +543,18 @@
       }
 
       .popup h3 {
-        font-size: 0.88rem;
+        font-size: 0.82rem;
         margin: 0 0 0.05rem 0;
         padding-right: 0;
-        line-height: 1.25;
+        line-height: 1.2;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
 
       .popup p {
-        font-size: 0.74rem;
-        line-height: 1.3;
+        font-size: 0.68rem;
+        line-height: 1.25;
         margin: 0;
         white-space: nowrap;
         overflow: hidden;
@@ -560,19 +564,29 @@
 
       .popup .popup-close {
         top: 50%;
-        right: 6px;
+        right: 4px;
         transform: translateY(-50%);
-        font-size: 1rem;
+        font-size: 0.9rem;
         padding: 0 4px;
         line-height: 1;
       }
 
-      /* hide the floating mini hearts on mobile (keeps banners clean) */
       .popup-heart-float { display: none; }
 
       @keyframes popInMobile {
-        0%   { opacity: 0; transform: translateX(-50%) translateY(-12px) scale(0.92); }
+        0%   { opacity: 0; transform: translateX(-50%) translateY(-10px) scale(0.92); }
         100% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+      }
+
+      /* On mobile, the stage-card gets extra bottom padding so the
+         bottom banners don't cover its buttons */
+      .stage-card {
+        padding-bottom: 5.5rem;
+      }
+
+      /* The main card also gets a little extra bottom breathing room */
+      .card {
+        padding-bottom: 4rem;
       }
     }
 
@@ -588,7 +602,7 @@
       .yes-btn { font-size: 1.4rem; padding: 1rem 2rem; }
       .no-btn { font-size: 1.3rem; padding: 0.8rem 1.8rem; }
       .response { font-size: 1.4rem; }
-      .stage-card { padding: 2rem 1.2rem 2.2rem; border-radius: 40px; }
+      .stage-card { padding: 2rem 1.2rem 2.2rem; border-radius: 40px; padding-bottom: 5.2rem; }
       .stage-card h2 { font-size: 1.8rem; }
       .stage-emoji { font-size: 2.6rem; }
       .stage-yes-btn { font-size: 1.3rem; padding: 0.9rem 1.8rem; }
@@ -932,7 +946,7 @@
   }
 
   // ════════════════════════════════════════════════════
-  // Popup cascades — TWO romantic sets
+  // Popup cascades
   // ════════════════════════════════════════════════════
   const popupMessagesStage1 = [
     { emoji: '🌹', title: 'You said YES!',       text: "I'm the luckiest person alive. 💕" },
@@ -965,7 +979,7 @@
   const MAX_POPUPS = 10;
   const POPUP_DELAY = 520;
 
-  // Track which vertical slots have been used so banners don't overlap
+  // Track vertical slots used on mobile so banners don't overlap
   let usedSlots = [];
 
   function isMobile() {
@@ -999,7 +1013,7 @@
     }
   }
 
-  // ── Desktop side popup (unchanged behaviour) ──
+  // ── Desktop side popup ──
   function createSidePopup({ emoji, title, text }, side) {
     const popup = document.createElement('div');
     popup.className = 'popup';
@@ -1054,11 +1068,15 @@
     const popup = document.createElement('div');
     popup.className = 'popup';
 
-    const bannerH = 52;          // approx banner height
+    // Dimensions of the mobile banner (matches CSS)
+    const bannerH = 52;
     const margin  = 10;
-    const totalSlots = Math.max(1, Math.floor((window.innerHeight - margin * 2) / (bannerH + 6)));
+    const gap     = 4;
 
-    // Find a free slot (or fall back to any)
+    // Calculate how many banners can fit vertically
+    const totalSlots = Math.max(1, Math.floor((window.innerHeight - margin * 2) / (bannerH + gap)));
+
+    // Find a free slot
     let slotIndex = -1;
     for (let i = 0; i < totalSlots; i++) {
       if (!usedSlots.includes(i)) {
@@ -1073,14 +1091,15 @@
     }
     usedSlots.push(slotIndex);
 
-    // Alternate anchoring between top and bottom halves so it feels lively
+    // Alternate anchoring: even slots go to the top, odd slots to the bottom
     const anchorTop = slotIndex % 2 === 0;
     let top;
     if (anchorTop) {
-      top = margin + slotIndex * (bannerH + 6);
+      top = margin + slotIndex * (bannerH + gap);
     } else {
-      top = window.innerHeight - margin - bannerH - slotIndex * (bannerH + 6) + bannerH;
+      top = window.innerHeight - margin - bannerH - slotIndex * (bannerH + gap) + bannerH;
     }
+
     // Clamp to screen
     top = Math.max(margin, Math.min(top, window.innerHeight - bannerH - margin));
 
