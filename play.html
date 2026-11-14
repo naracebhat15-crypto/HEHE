@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tricky · for my girlfriend ✨</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fff5f8 0%, #ffe4ec 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "❤️ 💕 🌸 ✨ 💗";
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 1.8rem;
+      opacity: 0.2;
+      white-space: nowrap;
+      rotate: -12deg;
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "💖 💘 💝 🎀 💞";
+      position: absolute;
+      bottom: 20px;
+      right: 15px;
+      font-size: 2rem;
+      opacity: 0.2;
+      white-space: nowrap;
+      rotate: 8deg;
+      pointer-events: none;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-radius: 64px;
+      box-shadow: 0 25px 40px -12px rgba(220, 100, 130, 0.35),
+                  0 0 0 2px rgba(255, 255, 255, 0.7) inset;
+      padding: 3rem 2.5rem 3.5rem;
+      max-width: 580px;
+      width: 100%;
+      text-align: center;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 200, 220, 0.6);
+      position: relative;
+      z-index: 10;
+    }
+
+    .card::before {
+      content: "💌";
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      font-size: 2.2rem;
+      opacity: 0.7;
+      transform: rotate(8deg);
+    }
+
+    h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #b3405a;
+      text-shadow: 0 2px 6px rgba(255, 200, 210, 0.8);
+      margin-bottom: 0.65rem;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    h1 span {
+      font-size: 2.9rem;
+      display: inline-block;
+      animation: gentleBounce 2s infinite ease-in-out;
+    }
+
+    .sub-message {
+      font-size: 1.25rem;
+      color: #8f4e60;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      background: #ffeef2c4;
+      padding: 0.6rem 1.5rem;
+      border-radius: 100px;
+      display: inline-block;
+      backdrop-filter: blur(4px);
+      border: 1px solid #ffccd8;
+      letter-spacing: -0.2px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      position: relative;
+      min-height: 100px;
+    }
+
+    .yes-btn {
+      background: linear-gradient(135deg, #ee6b8b, #d9426e);
+      color: white;
+      border: none;
+      padding: 1.1rem 2.8rem;
+      font-size: 1.7rem;
+      font-weight: 700;
+      border-radius: 60px;
+      cursor: pointer;
+      box-shadow: 0 16px 28px -10px #d9426e, 0 0 0 2px #fff9 inset;
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex: 0 0 auto;
+      transform: scale(1);
+      border: 2px solid rgba(255, 240, 245, 0.7);
+    }
+
+    .yes-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 22px 32px -10px #c7355e, 0 0 0 3px #ffdae5 inset;
+      filter: brightness(1.02);
+    }
+
+    .yes-btn:active {
+      transform: scale(0.98);
+    }
+
+    .no-btn {
+      background: #f7e9ec;
+      color: #b34e64;
+      border: 2px solid #f0b8c6;
+      padding: 1rem 2.3rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      border-radius: 60px;
+      cursor: pointer;
+      box-shadow: 0 8px 16px -6px #e7b7c4;
+      transition: none;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex: 0 0 auto;
+      position: relative;
+      will-change: transform;
+      transform: translate(0, 0);
+      user-select: none;
+    }
+
+    .no-btn:hover {
+      background: #ffeef2;
+      border-color: #e797ab;
+    }
+
+    .response {
+      margin-top: 2rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #b3405a;
+      background: #fff0f4d9;
+      backdrop-filter: blur(8px);
+      padding: 1rem 2rem;
+      border-radius: 80px;
+      display: inline-block;
+      border: 2px dashed #ffa5bb;
+      box-shadow: 0 10px 18px -8px #fbb6c9;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      max-width: 90%;
+      line-height: 1.4;
+    }
+
+    .response.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── stage-2 / stage-3 overlay interfaces ── */
+    .stage-overlay {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(255, 230, 240, 0.5);
+      backdrop-filter: blur(6px);
+      z-index: 20000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .stage-overlay.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .stage-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-radius: 56px;
+      box-shadow: 0 30px 60px -15px rgba(200, 80, 120, 0.45),
+                  0 0 0 2px rgba(255, 255, 255, 0.8) inset;
+      padding: 2.8rem 2.2rem 3rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      border: 2px solid #ffd9e4;
+      animation: stagePop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      position: relative;
+    }
+
+    @keyframes stagePop {
+      0%   { opacity: 0; transform: scale(0.8) translateY(30px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .stage-card h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #b3405a;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .stage-card .stage-emoji {
+      font-size: 3.4rem;
+      display: block;
+      margin-bottom: 0.6rem;
+      animation: gentleBounce 1.8s infinite ease-in-out;
+    }
+
+    .stage-card .stage-sub {
+      font-size: 1.1rem;
+      color: #8f4e60;
+      margin-bottom: 2rem;
+      background: #ffeef2c4;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      display: inline-block;
+      border: 1px solid #ffccd8;
+    }
+
+    .stage-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+      min-height: 80px;
+      position: relative;
+    }
+
+    .stage-yes-btn {
+      background: linear-gradient(135deg, #ee6b8b, #d9426e);
+      color: white;
+      border: none;
+      padding: 1rem 2.4rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 60px;
+      cursor: pointer;
+      box-shadow: 0 16px 28px -10px #d9426e, 0 0 0 2px #fff9 inset;
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 2px solid rgba(255, 240, 245, 0.7);
+    }
+
+    .stage-yes-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 22px 32px -10px #c7355e, 0 0 0 3px #ffdae5 inset;
+      filter: brightness(1.02);
+    }
+
+    .stage-yes-btn:active {
+      transform: scale(0.98);
+    }
+
+    .stage-no-btn {
+      background: #f7e9ec;
+      color: #b34e64;
+      border: 2px solid #f0b8c6;
+      padding: 0.9rem 2rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      border-radius: 60px;
+      cursor: pointer;
+      box-shadow: 0 8px 16px -6px #e7b7c4;
+      transition: none;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      will-change: transform;
+      transform: translate(0, 0);
+      user-select: none;
+    }
+
+    .stage-no-btn:hover {
+      background: #ffeef2;
+      border-color: #e797ab;
+    }
+
+    /* ── Reload button — pinned to the TOP-RIGHT corner ── */
+    .reload-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 64px;
+      height: 64px;
+      background: #fff0f4;
+      color: #b3405a;
+      border: 2px solid #f0b8c6;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 12px 24px -8px rgba(200, 80, 120, 0.55),
+                  0 0 0 3px rgba(255, 255, 255, 0.6) inset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      z-index: 30002;
+      padding: 0;
+      animation: reloadPulse 2s ease-in-out infinite;
+    }
+
+    .reload-btn:hover {
+      transform: scale(1.12);
+      background: #ffe4ec;
+      box-shadow: 0 16px 32px -8px #d99aae,
+                  0 0 0 3px rgba(255, 255, 255, 0.8) inset;
+      animation: none;
+    }
+
+    .reload-btn:active {
+      transform: scale(0.95);
+    }
+
+    .reload-btn .reload-icon {
+      display: inline-block;
+      font-size: 1.9rem;
+      line-height: 1;
+      animation: spinLoop 2.5s linear infinite;
+    }
+
+    .reload-btn:hover .reload-icon {
+      animation: spinLoop 0.8s linear infinite;
+    }
+
+    @keyframes spinLoop {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    @keyframes reloadPulse {
+      0%, 100% { box-shadow: 0 12px 24px -8px rgba(200, 80, 120, 0.55),
+                             0 0 0 3px rgba(255, 255, 255, 0.6) inset,
+                             0 0 0 0 rgba(238, 107, 139, 0.5); }
+      50%      { box-shadow: 0 12px 24px -8px rgba(200, 80, 120, 0.55),
+                             0 0 0 3px rgba(255, 255, 255, 0.6) inset,
+                             0 0 0 14px rgba(238, 107, 139, 0); }
+    }
+
+    /* ── floating hearts ── */
+    .hearts-pop {
+      position: fixed;
+      pointer-events: none;
+      font-size: 2rem;
+      z-index: 30000;
+      animation: floatHeart 1s ease-out forwards;
+    }
+
+    @keyframes floatHeart {
+      0%   { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+      100% { opacity: 0; transform: translateY(-140px) scale(1.9) rotate(20deg); }
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-5px); }
+    }
+
+    /* ── popup window base — appears on the SIDES of the screen ── */
+    .popup {
+      position: fixed;
+      width: 280px;
+      background: rgba(255, 250, 252, 0.97);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      box-shadow: 0 20px 45px -12px rgba(200, 80, 120, 0.5),
+                  0 0 0 2px #ffd9e4 inset;
+      padding: 1.6rem 1.4rem 1.8rem;
+      z-index: 25000;
+      border: 1px solid #ffc2d4;
+      animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      text-align: center;
+      pointer-events: auto;
+    }
+
+    @keyframes popIn {
+      0%   { opacity: 0; transform: scale(0.7) translateY(20px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .popup .popup-close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #c76b83;
+      font-weight: 700;
+      line-height: 1;
+      padding: 2px 6px;
+      border-radius: 50%;
+      transition: background 0.2s;
+      pointer-events: auto;
+    }
+
+    .popup .popup-close:hover {
+      background: #ffe2ea;
+    }
+
+    .popup h3 {
+      font-size: 1.4rem;
+      color: #b3405a;
+      margin-bottom: 0.6rem;
+      padding-right: 1.2rem;
+    }
+
+    .popup p {
+      font-size: 1rem;
+      color: #7a4a58;
+      line-height: 1.5;
+    }
+
+    .popup .popup-emoji {
+      font-size: 2.4rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    /* mini hearts inside popup */
+    .popup-heart-float {
+      position: absolute;
+      pointer-events: none;
+      font-size: 1rem;
+      animation: popHeart 1.4s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes popHeart {
+      0%   { opacity: 0; transform: translateY(0) scale(0.5); }
+      30%  { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-60px) scale(1.2); }
+    }
+
+    /* confetti / sparkles on screen */
+    .sparkle {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.2rem;
+      z-index: 30001;
+      animation: sparkleFade 1.1s ease-out forwards;
+    }
+
+    @keyframes sparkleFade {
+      0%   { opacity: 1; transform: scale(1) rotate(0deg); }
+      100% { opacity: 0; transform: scale(0.2) rotate(180deg); }
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .popup { display: none; }
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 2rem 1.2rem 2.8rem;
+        border-radius: 48px;
+      }
+      h1 { font-size: 2rem; }
+      h1 span { font-size: 2.4rem; }
+      .sub-message { font-size: 1rem; padding: 0.5rem 1rem; }
+      .buttons { gap: 1rem; }
+      .yes-btn { font-size: 1.4rem; padding: 1rem 2rem; }
+      .no-btn { font-size: 1.3rem; padding: 0.8rem 1.8rem; }
+      .response { font-size: 1.4rem; }
+      .popup { width: 240px; padding: 1.2rem 1rem 1.4rem; }
+      .popup h3 { font-size: 1.2rem; }
+      .stage-card { padding: 2rem 1.2rem 2.2rem; border-radius: 40px; }
+      .stage-card h2 { font-size: 1.8rem; }
+      .stage-emoji { font-size: 2.6rem; }
+      .stage-yes-btn { font-size: 1.3rem; padding: 0.9rem 1.8rem; }
+      .stage-no-btn { font-size: 1.2rem; padding: 0.8rem 1.6rem; }
+      .reload-btn {
+        top: 14px;
+        right: 14px;
+        width: 54px;
+        height: 54px;
+      }
+      .reload-btn .reload-icon { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── STAGE 1: Valentine card ── -->
+<div class="card" id="mainCard">
+  <h1>
+    <span>💖</span> Will you be my Valentine? <span>💖</span>
+  </h1>
+
+  <div class="buttons" id="buttonArea">
+    <button class="yes-btn" id="yesBtn">Yes Hehe 😍</button>
+    <button class="no-btn" id="noBtn">No 😎🤏</button>
+  </div>
+
+  <div class="response" id="responseMessage">
+    🥰 I knew it! You've made me the happiest! 💕
+  </div>
+</div>
+
+<!-- ── STAGE 2: Will you marry me? ── -->
+<div class="stage-overlay" id="stage2Overlay">
+  <div class="stage-card">
+    <span class="stage-emoji">💍</span>
+    <h2>Will you marry me?</h2>
+    <div class="stage-sub">(this is the real question now 💕)</div>
+    <div class="stage-buttons" id="stage2Buttons">
+      <button class="stage-yes-btn" id="stage2Yes">Ofcourse Babe 💍</button>
+      <button class="stage-no-btn" id="stage2No">No Humph 😅</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── STAGE 3: Will you ghop ghop with me? ── -->
+<div class="stage-overlay" id="stage3Overlay">
+  <div class="stage-card">
+    <span class="stage-emoji">🐾</span>
+    <h2>Will you do Num Num  with me 🥵?</h2>
+    <div class="stage-sub">(Ghop Ghop = forever together 🥰)</div>
+    <div class="stage-buttons" id="stage3Buttons">
+      <button class="stage-yes-btn" id="stage3Yes">Always Ready👅🥵 </button>
+      <button class="stage-no-btn" id="stage3No">Not at all 💀</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  "use strict";
+
+  // ── DOM refs ──
+  const yesBtn      = document.getElementById('yesBtn');
+  const noBtn       = document.getElementById('noBtn');
+  const responseDiv = document.getElementById('responseMessage');
+  const buttonArea  = document.getElementById('buttonArea');
+
+  const stage2Overlay = document.getElementById('stage2Overlay');
+  const stage3Overlay = document.getElementById('stage3Overlay');
+
+  const stage2Yes = document.getElementById('stage2Yes');
+  const stage2No  = document.getElementById('stage2No');
+  const stage2Buttons = document.getElementById('stage2Buttons');
+
+  const stage3Yes = document.getElementById('stage3Yes');
+  const stage3No  = document.getElementById('stage3No');
+  const stage3Buttons = document.getElementById('stage3Buttons');
+
+  // ── state ──
+  let dodgeEnabled = true;
+  let yesClicked   = false;
+  let stage2Dodge  = true;
+  let stage3Dodge  = true;
+
+  // ════════════════════════════════════════════════════
+  // STAGE 1 — tricky "No" button inside the card
+  // ════════════════════════════════════════════════════
+  function dodgeNoButton() {
+    if (!dodgeEnabled || yesClicked) return;
+
+    const maxOffsetX = Math.min(110, buttonArea.offsetWidth  * 0.35);
+    const maxOffsetY = Math.min(70,  buttonArea.offsetHeight * 0.5);
+
+    let offsetX, offsetY;
+    const minJump = 40;
+
+    do {
+      offsetX = (Math.random() * 2 - 1) * maxOffsetX;
+      offsetY = (Math.random() * 2 - 1) * maxOffsetY;
+    } while (Math.abs(offsetX) < minJump && Math.abs(offsetY) < minJump);
+
+    noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+  }
+
+  noBtn.addEventListener('mouseenter', () => { if (!dodgeEnabled || yesClicked) return; dodgeNoButton(); });
+  noBtn.addEventListener('mousemove',  () => { if (!dodgeEnabled || yesClicked) return; dodgeNoButton(); });
+  noBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!dodgeEnabled || yesClicked) return;
+    dodgeNoButton();
+  });
+  noBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (!dodgeEnabled || yesClicked) return;
+    dodgeNoButton();
+  }, { passive: false });
+
+  // ── YES (stage 1) → open stage 2 ──
+  yesBtn.addEventListener('click', () => {
+    if (yesClicked) return;
+    yesClicked   = true;
+    dodgeEnabled = false;
+
+    responseDiv.classList.add('show');
+    noBtn.style.transform     = 'translate(0,0)';
+    noBtn.style.pointerEvents = 'none';
+    noBtn.style.opacity       = '0.7';
+
+    spawnHeartsBurst(yesBtn);
+    openPopupCascade(popupMessagesStage1);
+
+    setTimeout(() => {
+      stage2Overlay.classList.add('visible');
+    }, 900);
+  });
+
+  // ════════════════════════════════════════════════════
+  // STAGE 2 — "Will you marry me?"
+  // ════════════════════════════════════════════════════
+  function stage2DodgeNo() {
+    if (!stage2Dodge) return;
+
+    const maxOffsetX = Math.min(120, stage2Buttons.offsetWidth  * 0.35);
+    const maxOffsetY = Math.min(70,  stage2Buttons.offsetHeight * 0.5);
+
+    let offsetX, offsetY;
+    const minJump = 40;
+
+    do {
+      offsetX = (Math.random() * 2 - 1) * maxOffsetX;
+      offsetY = (Math.random() * 2 - 1) * maxOffsetY;
+    } while (Math.abs(offsetX) < minJump && Math.abs(offsetY) < minJump);
+
+    stage2No.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+  }
+
+  stage2No.addEventListener('mouseenter', () => { if (!stage2Dodge) return; stage2DodgeNo(); });
+  stage2No.addEventListener('mousemove',  () => { if (!stage2Dodge) return; stage2DodgeNo(); });
+  stage2No.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!stage2Dodge) return;
+    stage2DodgeNo();
+  });
+  stage2No.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (!stage2Dodge) return;
+    stage2DodgeNo();
+  }, { passive: false });
+
+  // ── YES (stage 2) → open stage 3 with romantic popups ──
+  stage2Yes.addEventListener('click', () => {
+    if (!stage2Dodge) return;
+    stage2Dodge = false;
+
+    stage2No.style.transform     = 'translate(0,0)';
+    stage2No.style.pointerEvents = 'none';
+    stage2No.style.opacity       = '0.6';
+
+    spawnHeartsBurst(stage2Yes);
+    spawnSparklesBurst(stage2Yes);
+
+    openPopupCascade(popupMessagesStage2);
+
+    setTimeout(() => {
+      stage2Overlay.classList.remove('visible');
+      setTimeout(() => {
+        stage3Overlay.classList.add('visible');
+      }, 300);
+    }, 900);
+  });
+
+  // ════════════════════════════════════════════════════
+  // STAGE 3 — "Will you ghop ghop with me?"
+  // ════════════════════════════════════════════════════
+  function stage3DodgeNo() {
+    if (!stage3Dodge) return;
+
+    const maxOffsetX = Math.min(120, stage3Buttons.offsetWidth  * 0.35);
+    const maxOffsetY = Math.min(70,  stage3Buttons.offsetHeight * 0.5);
+
+    let offsetX, offsetY;
+    const minJump = 40;
+
+    do {
+      offsetX = (Math.random() * 2 - 1) * maxOffsetX;
+      offsetY = (Math.random() * 2 - 1) * maxOffsetY;
+    } while (Math.abs(offsetX) < minJump && Math.abs(offsetY) < minJump);
+
+    stage3No.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+  }
+
+  stage3No.addEventListener('mouseenter', () => { if (!stage3Dodge) return; stage3DodgeNo(); });
+  stage3No.addEventListener('mousemove',  () => { if (!stage3Dodge) return; stage3DodgeNo(); });
+  stage3No.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!stage3Dodge) return;
+    stage3DodgeNo();
+  });
+  stage3No.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    if (!stage3Dodge) return;
+    stage3DodgeNo();
+  }, { passive: false });
+
+  // ── YES (stage 3) → final celebration with TOP-RIGHT reload button ──
+  stage3Yes.addEventListener('click', () => {
+    if (!stage3Dodge) return;
+    stage3Dodge = false;
+
+    stage3No.style.transform     = 'translate(0,0)';
+    stage3No.style.pointerEvents = 'none';
+    stage3No.style.opacity       = '0.6';
+
+    spawnHeartsBurst(stage3Yes);
+    spawnSparklesBurst(stage3Yes);
+
+    const stage3Card = stage3Overlay.querySelector('.stage-card');
+    stage3Card.innerHTML = `
+      <span class="stage-emoji">🥹💖🐾</span>
+      <h2>Yesss! Ghop ghop forever!</h2>
+      <div class="stage-sub">You've made me the happiest ever 💕</div>
+      <p style="font-size:1.15rem;color:#8f4e60;margin-top:0.4rem;line-height:1.6;">
+        Valentine ✓ &nbsp; Marriage ✓ &nbsp; Ghop ghop ✓<br>
+        I love you more than words can say. 🥰
+      </p>
+    `;
+
+    // Create the reload button in the TOP-RIGHT corner of the screen
+    const reloadBtn = document.createElement('button');
+    reloadBtn.className = 'reload-btn';
+    reloadBtn.type = 'button';
+    reloadBtn.setAttribute('aria-label', 'Start over from the beginning');
+    reloadBtn.title = 'Start over from the beginning';
+    reloadBtn.innerHTML = `<span class="reload-icon">↻</span>`;
+    document.body.appendChild(reloadBtn);
+
+    reloadBtn.addEventListener('click', () => {
+      // A quick heart goodbye before reloading
+      for (let i = 0; i < 15; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.classList.add('hearts-pop');
+          const hearts = ['❤️','💖','💕','✨','🥰','🐾'];
+          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+          heart.style.left = (Math.random() * window.innerWidth) + 'px';
+          heart.style.top  = (Math.random() * window.innerHeight) + 'px';
+          heart.style.fontSize = (1.4 + Math.random() * 1.6) + 'rem';
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 1100);
+        }, i * 45);
+      }
+      // Reload after a short delay so the hearts are visible
+      setTimeout(() => window.location.reload(), 600);
+    });
+
+    // Big heart shower
+    for (let i = 0; i < 40; i++) {
+      setTimeout(() => {
+        const heart = document.createElement('div');
+        heart.classList.add('hearts-pop');
+        const hearts = ['❤️','💖','💕','💗','💓','💞','🌸','✨','🥰','💘','💝','🐾'];
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = (Math.random() * window.innerWidth) + 'px';
+        heart.style.top  = (Math.random() * window.innerHeight) + 'px';
+        heart.style.fontSize = (1.4 + Math.random() * 2) + 'rem';
+        heart.style.rotate   = (Math.random() * 70 - 35) + 'deg';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1200);
+      }, i * 60);
+    }
+  });
+
+  // ════════════════════════════════════════════════════
+  // Shared visual effects
+  // ════════════════════════════════════════════════════
+  function spawnHeartsBurst(anchorEl) {
+    const rect   = anchorEl.getBoundingClientRect();
+    const startX = rect.left + rect.width  / 2;
+    const startY = rect.top  + rect.height / 2;
+    const hearts = ['❤️','💖','💕','💗','💓','💞','🌸','✨','🥰','💘','💝'];
+
+    for (let i = 0; i < 22; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('hearts-pop');
+      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+      const angle    = Math.random() * 2 * Math.PI;
+      const distance = 60 + Math.random() * 150;
+      const offsetX  = Math.cos(angle) * distance;
+      const offsetY  = Math.sin(angle) * distance - 40;
+
+      heart.style.left     = (startX - 20 + offsetX) + 'px';
+      heart.style.top      = (startY - 20 + offsetY) + 'px';
+      heart.style.fontSize = (1.5 + Math.random() * 1.8) + 'rem';
+      heart.style.rotate   = (Math.random() * 70 - 35) + 'deg';
+
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1100);
+    }
+  }
+
+  function spawnSparklesBurst(anchorEl) {
+    const rect = anchorEl.getBoundingClientRect();
+    const startX = rect.left + rect.width  / 2;
+    const startY = rect.top  + rect.height / 2;
+    const sparkles = ['✨','⭐','🌟','💫','⚡','🎉','🎊'];
+
+    for (let i = 0; i < 14; i++) {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+      const angle = Math.random() * 2 * Math.PI;
+      const dist  = 40 + Math.random() * 120;
+      s.style.left = (startX + Math.cos(angle) * dist) + 'px';
+      s.style.top  = (startY + Math.sin(angle) * dist) + 'px';
+      s.style.fontSize = (0.9 + Math.random() * 1.4) + 'rem';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 1200);
+    }
+  }
+
+  // ════════════════════════════════════════════════════
+  // Popup cascades — TWO romantic sets
+  // ════════════════════════════════════════════════════
+  const popupMessagesStage1 = [
+    { emoji: '🌹', title: 'You said YES!',       text: "I'm the luckiest person alive. 💕" },
+    { emoji: '🎉', title: 'Celebration time!',   text: 'You just made my whole year! 🥳' },
+    { emoji: '💌', title: 'A little secret…',    text: "I've been waiting for this moment forever." },
+    { emoji: '🥰', title: "You're amazing",      text: 'Thank you for choosing me. I adore you.' },
+    { emoji: '✨', title: 'One more thing…',     text: "You + Me = Forever. It's official now! 💖" },
+    { emoji: '🍫', title: 'Sweet treat',         text: 'Chocolate later? You deserve it, my love.' },
+    { emoji: '🎈', title: "Let's celebrate!",    text: "I'm popping confetti in my heart right now!" },
+    { emoji: '💐', title: "You're my favourite", text: 'Every day with you is a gift. 💐' },
+    { emoji: '🦋', title: 'Butterflies',         text: 'You still give me butterflies, every single time.' },
+    { emoji: '💍', title: 'And one more…',       text: "Okay, I'll stop spamming… for now 😘" }
+  ];
+
+  const popupMessagesStage2 = [
+    { emoji: '💍', title: 'She said YES again!', text: 'Marriage is on the table, and I\'m over the moon. 💕' },
+    { emoji: '💒', title: 'Future wedding bells', text: 'I can already hear them ringing for us. 🔔' },
+    { emoji: '🥹', title: 'Tears of joy',        text: 'You\'ve just made me the happiest human alive.' },
+    { emoji: '🫶', title: 'My person, forever',  text: 'You\'re my always and my everything.' },
+    { emoji: '💐', title: 'A promise',           text: 'I promise to love you in every lifetime.' },
+    { emoji: '🌹', title: 'This is forever',     text: 'From valentine to wife-to-be — I\'m so lucky.' },
+    { emoji: '💞', title: 'Two hearts, one path',text: 'Our story just got its best chapter yet.' },
+    { emoji: '✨', title: 'You & Me & Always',   text: 'No matter what, it\'s always been you.' },
+    { emoji: '🥂', title: 'To us!',              text: 'Here\'s to a lifetime of love and laughter.' },
+    { emoji: '💖', title: 'And one more…',       text: 'Okay — the real question comes next. 😘' }
+  ];
+
+  let popupCount   = 0;
+  let sideToggle   = 0;
+  const MAX_POPUPS = 10;
+  const POPUP_DELAY = 520;
+
+  function openPopupCascade(messages) {
+    popupCount = 0;
+    sideToggle = 0;
+    spawnNextPopup(messages);
+  }
+
+  function spawnNextPopup(messages) {
+    if (popupCount >= MAX_POPUPS) return;
+
+    if (window.innerWidth < 900) {
+      spawnSparkles();
+      popupCount++;
+      if (popupCount < MAX_POPUPS) setTimeout(() => spawnNextPopup(messages), POPUP_DELAY);
+      return;
+    }
+
+    const msg = messages[popupCount % messages.length];
+    popupCount++;
+
+    createSidePopup(msg, sideToggle % 2 === 0 ? 'left' : 'right');
+    sideToggle++;
+
+    spawnSparkles();
+
+    if (popupCount < MAX_POPUPS) {
+      setTimeout(() => spawnNextPopup(messages), POPUP_DELAY);
+    }
+  }
+
+  function createSidePopup({ emoji, title, text }, side) {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+
+    const popupW = 280;
+    const popupH = 200;
+    const margin = 18;
+    const slotH  = 110;
+
+    const totalSlots = Math.max(1, Math.floor((window.innerHeight - margin * 2) / slotH));
+    const slotIndex  = (popupCount - 1) % totalSlots;
+    const top = margin + slotIndex * slotH;
+
+    let left;
+    if (side === 'left') {
+      left = margin;
+    } else {
+      left = window.innerWidth - popupW - margin;
+    }
+
+    const clampedTop = Math.max(margin, Math.min(top, window.innerHeight - popupH - margin));
+
+    popup.style.left = left + 'px';
+    popup.style.top  = clampedTop + 'px';
+
+    popup.innerHTML = `
+      <button class="popup-close" aria-label="close">✕</button>
+      <span class="popup-emoji">${emoji}</span>
+      <h3>${title}</h3>
+      <p>${text}</p>
+    `;
+
+    document.body.appendChild(popup);
+
+    const closeBtn = popup.querySelector('.popup-close');
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      popup.remove();
+    });
+
+    setTimeout(() => {
+      if (popup.parentNode) popup.remove();
+    }, 8000);
+
+    spawnPopupMiniHearts(popup);
+  }
+
+  function spawnPopupMiniHearts(popup) {
+    const rect = popup.getBoundingClientRect();
+    const hearts = ['💗','💕','✨','🌸','💖'];
+    for (let i = 0; i < 4; i++) {
+      const h = document.createElement('span');
+      h.className = 'popup-heart-float';
+      h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      h.style.left = (10 + Math.random() * (rect.width - 40)) + 'px';
+      h.style.top  = (rect.height - 20) + 'px';
+      h.style.animationDelay = (i * 0.15) + 's';
+      h.style.position = 'absolute';
+      popup.appendChild(h);
+      setTimeout(() => h.remove(), 1600);
+    }
+  }
+
+  function spawnSparkles() {
+    const sparkles = ['✨','⭐','🌟','💫','⚡'];
+    for (let i = 0; i < 5; i++) {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+      s.style.left = (Math.random() * window.innerWidth) + 'px';
+      s.style.top  = (Math.random() * window.innerHeight) + 'px';
+      s.style.fontSize = (0.9 + Math.random() * 1.2) + 'rem';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 1200);
+    }
+  }
+
+  // ── initial playful nudge ──
+  setTimeout(() => {
+    if (!yesClicked) {
+      noBtn.style.transition = 'transform 0.15s ease';
+      noBtn.style.transform  = 'translate(12px, -8px)';
+      setTimeout(() => {
+        if (!yesClicked) {
+          noBtn.style.transform = 'translate(-10px, 6px)';
+          setTimeout(() => {
+            if (!yesClicked) noBtn.style.transform = 'translate(0,0)';
+            noBtn.style.transition = 'none';
+          }, 200);
+        }
+      }, 200);
+    }
+  }, 1800);
+
+})();
+</script>
+</body>
+</html>
